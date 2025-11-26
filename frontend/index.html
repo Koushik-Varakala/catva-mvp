@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <title>CATVA Widget MVP</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { margin-right: 8px; padding: 8px 12px; }
+    #transcript { margin-top: 12px; min-height: 24px; }
+  </style>
 </head>
 <body>
   <h3>CATVA Demo Widget</h3>
   <button id="startBtn">Start</button>
   <button id="stopBtn" disabled>Stop</button>
+  <button id="speakBackBtn">Speak back sample</button>
   <div id="transcript"></div>
   <audio id="playback" controls></audio>
 

@@ -1,19 +1,26 @@
-# CATVA MVP
+LOCAL RUN (quick)
 
-This is a minimal MVP for the CATVA project (Contextually Adaptive Trilingual Voice Agent).
+1) Ensure Node 18 is active:
+   - If you use nvm:
+     nvm install 18
+     nvm use 18
+   - Verify:
+     node -v    # should be v18.x
 
-## Quickstart (local)
+2) Server install & run:
+   cd server
+   rm -rf node_modules package-lock.json
+   npm install
+   # Set environment variables (do not share keys)
+   export ELEVENLABS_API_KEY="your_key_here"
+   export ELEVEN_VOICE_ID="your_voice_id_here"
+   node server.js
 
-1. Install Node.js (>=16 recommended)
-2. Start server:
-   - cd server
-   - npm install
-   - set env: export ELEVENLABS_API_KEY="your_key" && export ELEVEN_VOICE_ID="voice_id"
-   - node server.js
-3. Open browser at http://localhost:4000 and open the widget (index.html served from server).
-4. Click Start and allow microphone. The widget will stream audio to the backend and receive transcripts.
+3) Open browser:
+   http://localhost:4000
+   Click Start, allow microphone, speak.
+   Use "Speak back sample" to request server-side TTS (ElevenLabs proxy).
 
-Notes:
-- ASR is a placeholder. Replace `server/services/asr.js` with Whisper or your chosen ASR.
-- TTS endpoint proxies ElevenLabs; provide your ElevenLabs API key.
-# catva-mvp
+SECURITY:
+ - NEVER put your API key in frontend or commit it.
+ - For production, set env vars in your host (Render, Heroku, etc).
