@@ -8,7 +8,10 @@ let ws;
 let mediaRecorder;
 
 startBtn.onclick = async () => {
-  ws = new WebSocket('ws://localhost:4000/ws/audio');
+const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+const wsUrl = `${protocol}://${window.location.host}/ws/audio`;
+ws = new WebSocket(wsUrl);
+
   ws.onmessage = (ev) => {
     // JSON messages: {type:'transcript'|'audio', data:...}
     const msg = JSON.parse(ev.data);
