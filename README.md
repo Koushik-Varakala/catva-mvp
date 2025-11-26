@@ -16,3 +16,4 @@ This is a minimal MVP for the CATVA project (Contextually Adaptive Trilingual Vo
 Notes:
 - ASR is a placeholder. Replace `server/services/asr.js` with Whisper or your chosen ASR.
 - TTS endpoint proxies ElevenLabs; provide your ElevenLabs API key.
+# catva-mvp
