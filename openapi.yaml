@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: CATVA MVP API
+  version: "0.1"
+servers:
+  - url: http://localhost:4000
+paths:
+  /v1/tts:
+    post:
+      summary: Synthesize text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                language:
+                  type: string
+      responses:
+        '200':
+          description: audio data URL
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataUrl:
+                    type: string
+  /ws/audio:
+    description: WebSocket endpoint for sending audio chunks (binary)

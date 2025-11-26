@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    environment:
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - ELEVEN_VOICE_ID=${ELEVEN_VOICE_ID}
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
